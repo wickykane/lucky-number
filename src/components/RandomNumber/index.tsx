@@ -95,7 +95,7 @@ type Props = {
 
 const DEFAULT_DATA = {
   length: 7,
-  speed: 6000,
+  speed: 3000,
 };
 
 const ALPHABET_RANGE = [...Array(26).keys()].map(i =>
@@ -191,7 +191,7 @@ const RandomNumber = (props: Props) => {
           ? stopIndex
           : getRandomInt(ELEMENTS.length - 1);
       const finalPos = -(baseHeight * endNum + baseHeight);
-      const finalSpeed = DEFAULT_DATA.speed - 100;
+      const finalSpeed = (DEFAULT_DATA.speed * 0.5 * ELEMENTS.length) / endNum;
 
       $(DOMsofNumber[index])
         .css('top', -listHeight)
