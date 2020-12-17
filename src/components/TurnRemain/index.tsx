@@ -7,12 +7,13 @@ const Text = styled.span`
 
 const Container = styled.div`
   background: #fff;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 30px;
   max-width: 200px;
+  margin: auto;
 `;
 
 const Counter = styled.div`
@@ -27,12 +28,16 @@ const Counter = styled.div`
   justify-content: center;
 `;
 
-const TurnRemain = () => {
+type Props = {
+  remain: number;
+};
+
+const TurnRemain = ({ remain }: Props) => {
   return (
     <Container>
       <Text>Lượt quay còn lại</Text>
       <Counter>
-        <span>2</span>
+        <span>{remain}</span>
       </Counter>
     </Container>
   );

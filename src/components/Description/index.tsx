@@ -6,6 +6,7 @@ const Description = styled.p`
   margin: 0.5rem 0;
   letter-spacing: normal;
   font-weight: normal;
+  font-family: Roboto, sans-serif;
 `;
 
 export default Description;

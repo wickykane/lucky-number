@@ -10,10 +10,13 @@ const Button = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0px 0px 8px 6px rgba(0, 0, 0, 0.2);
   &:active {
-    opacity: 0.5;
+    opacity: 0.8;
+  }
+  &:hover {
+    opacity: 0.9;
   }
 `;
 

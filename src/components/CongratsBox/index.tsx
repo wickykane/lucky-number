@@ -1,30 +1,40 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { CustomerWinner } from '../../app/types';
 import Header from '../Header';
 
 const Container = styled.div`
   position: relative;
+  flex: 1;
   margin: 2rem 0;
   padding: 1rem;
   border-radius: 15px;
   background-color: #fff;
-  border-bottom: 6px solid #ffc700;
   text-align: center;
   font-size: 1.75rem;
   width: 50%;
+  border-radius: 32.5px;
+  box-shadow: 0px 8px 0px #ffab01;
+  min-height: 200px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const CongratsText = styled.p`
   color: red;
   margin: 0;
+  font-size: 22px;
+  font-family: Roboto;
 `;
 
 const Name = styled(Header)`
   color: #374c9f;
   letter-spacing: normal;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0rem;
 `;
 
 const Phone = styled(Header)`
@@ -39,16 +49,32 @@ const Address = styled.div`
   letter-spacing: normal;
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
 `;
 
-const CongratsBox = () => {
-  return (
+const TEXT = {
+  start: 'VUI LÒNG NHẤN NÚT BẮT ĐẦU ĐỂ QUAY SỐ',
+  end: 'ĐANG QUAY SỐ VUI LÒNG NHẤN DỪNG',
+  result: '',
+};
+
+type Props = {
+  status: 'start' | 'end' | 'result';
+  winner?: CustomerWinner;
+};
+
+const CongratsBox = (props: Props) => {
+  return props.status === 'result' && props.winner ? (
     <Container>
       <CongratsText>Chúc mừng khách hàng</CongratsText>
-      <Name>Đào Quang Huy</Name>
-      <Phone>0367987481</Phone>
-      <Address>113/4/90 Võ Duy Ninh, P22, Bình Thạnh, TpHCM</Address>
+      <Name>{props.winner.customer?.name}</Name>
+      <Phone>{props.winner.customer?.phone_numer || 'N/A'}</Phone>
+      <Address>{props.winner.customer?.address_line || 'N/A'}</Address>
+    </Container>
+  ) : (
+    <Container>
+      <Name>{TEXT[props.status] || TEXT.start}</Name>
     </Container>
   );
 };

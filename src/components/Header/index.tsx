@@ -6,7 +6,8 @@ const Header = styled.h1`
   text-transform: uppercase;
   text-align: center;
   font-size: 2rem;
-  letter-spacing: 1mm;
+  font-weight: normal;
+  font-family: UTM, Roboto, sans-serif;
 `;
 
 export default Header;
